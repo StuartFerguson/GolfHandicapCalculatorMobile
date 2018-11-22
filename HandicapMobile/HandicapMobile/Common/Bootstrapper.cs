@@ -21,12 +21,12 @@ namespace HandicapMobile.Common
             var unityContainer = new UnityContainer();
 
             // Presentation registrations
-            unityContainer.RegisterType<IMainPagePresenter, MainPagePresenter>(new SingletonLifetimeManager());
-            unityContainer.RegisterType<IRegisterClubPresenter, RegisterClubPresenter>(new SingletonLifetimeManager());
+            unityContainer.RegisterType<IMainPagePresenter, MainPagePresenter>(new TransientLifetimeManager());
+            unityContainer.RegisterType<IRegisterClubPresenter, RegisterClubPresenter>(new TransientLifetimeManager());
 
             // View registrations
-            unityContainer.RegisterType<IMainPage, MainPage>(new SingletonLifetimeManager());
-            unityContainer.RegisterType<IRegisterClubPage, RegisterClubPage>(new SingletonLifetimeManager());
+            unityContainer.RegisterType<IMainPage, MainPage>(new TransientLifetimeManager());
+            unityContainer.RegisterType<IRegisterClubPage, RegisterClubPage>(new TransientLifetimeManager());
 
             // View model registrations
             unityContainer.RegisterType<RegisterClubViewModel>(new TransientLifetimeManager());
