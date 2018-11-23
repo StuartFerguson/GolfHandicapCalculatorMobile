@@ -20,5 +20,11 @@ namespace HandicapMobile.Common
         /// </summary>
         /// <returns></returns>
         Task Pop();
+
+        /// <summary>
+        /// Return to the application root page
+        /// </summary>
+        /// <returns></returns>
+        Task PopToRootPage();
     }
 }

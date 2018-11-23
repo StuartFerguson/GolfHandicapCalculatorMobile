@@ -18,7 +18,7 @@ namespace HandicapMobile
 
         public App()
         {
-            InitializeComponent();
+            //InitializeComponent();
 
             Bootstrapper.Run();
 

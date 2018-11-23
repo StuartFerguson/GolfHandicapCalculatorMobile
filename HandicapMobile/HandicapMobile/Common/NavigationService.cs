@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using HandicapMobile.Pages;
 using Xamarin.Forms;
+using Unity;
 
 namespace HandicapMobile.Common
 {
@@ -49,6 +50,18 @@ namespace HandicapMobile.Common
         {
             await this.ParentPage.Navigation.PopAsync();
         }
+        #endregion
+
+        #region public async Task PopToRootPage()
+        /// <summary>
+        /// Return to the application root page
+        /// </summary>
+        /// <returns></returns>
+        public async Task PopToRootPage()
+        {
+            await this.ParentPage.Navigation.PopToRootAsync(true);
+        }
+
         #endregion
 
         #endregion
