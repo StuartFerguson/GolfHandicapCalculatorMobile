@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HandicapMobile.Views.RegisterClubPage1">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="txtClubName" Placeholder="Club Name" Text="{Binding ClubName}" ></Entry>
+            <Entry x:Name="txtTelephoneNumber" Placeholder="Telephone Number" Text="{Binding TelephoneNumber}" ></Entry>
+            <Entry x:Name="txtWebsite" Placeholder="Website" Text="{Binding Website}" ></Entry>
+            <Entry x:Name="txtEmailAddress" Placeholder="Email Address" Text="{Binding EmailAddress}" ></Entry>
+            <Button x:Name="btnNext" Text="Next >>" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
