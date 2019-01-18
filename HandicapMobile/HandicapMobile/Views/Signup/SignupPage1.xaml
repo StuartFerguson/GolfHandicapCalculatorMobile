@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HandicapMobile.Views.SignupPage1">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Are you a?"/>
+            <Button x:Name="btnGolfClubAdministrator" Text="Golf Club Administrator >>" />
+            <Label Text="OR"/>
+            <Button x:Name="btnPlayer" Text="Player >>" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -21,13 +21,5 @@ namespace HandicapMobile.Common
         /// The management API.
         /// </value>
         public String ManagementAPI { get; set; }
-
-        /// <summary>
-        /// Gets or sets the address lookup API key.
-        /// </summary>
-        /// <value>
-        /// The address lookup API key.
-        /// </value>
-        public String AddressLookupAPIKey { get; set; }
     }
 }

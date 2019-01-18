@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using HandicapMobile.Pages;
+using HandicapMobile.Presenters.SignIn;
+using HandicapMobile.Presenters.Signup;
 
 namespace HandicapMobile.Presenters
 {
@@ -14,26 +16,35 @@ namespace HandicapMobile.Presenters
         private readonly IMainPage MainPage;
 
         /// <summary>
-        /// The register club presenter resolver
+        /// The signup presenter resolver
         /// </summary>
-        private readonly Func<IRegisterClubPresenter> RegisterClubPresenterResolver;
+        private readonly Func<ISignupPresenter> SignupPresenterResolver;
+
+        /// <summary>
+        /// The sign in presenter resolver
+        /// </summary>
+        private readonly Func<ISignInPresenter> SignInPresenterResolver;
 
         #endregion
 
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainPagePresenter"/> class.
+        /// Initializes a new instance of the <see cref="MainPagePresenter" /> class.
         /// </summary>
         /// <param name="mainPage">The main page.</param>
-        /// <param name="registerClubPresenterResolver">The register club presenter resolver.</param>
-        public MainPagePresenter(IMainPage mainPage, Func<IRegisterClubPresenter> registerClubPresenterResolver)
+        /// <param name="signupPresenterResolver">The signup presenter resolver.</param>
+        /// <param name="signInPresenterResolver">The sign in presenter resolver.</param>
+        public MainPagePresenter(IMainPage mainPage, Func<ISignupPresenter> signupPresenterResolver, Func<ISignInPresenter> signInPresenterResolver)
         {
             this.MainPage = mainPage;
-            this.RegisterClubPresenterResolver = registerClubPresenterResolver;
+            this.SignupPresenterResolver = signupPresenterResolver;
+            this.SignInPresenterResolver = signInPresenterResolver;
 
-            this.MainPage.RegisterClubButtonClick += MainPage_RegisterClubButtonClick;
+            this.MainPage.SignUpButtonClick += MainPage_SignUpButtonClick;
+            this.MainPage.SignInButtonClick += MainPage_SignInButtonClick;
         }
+
         #endregion
 
         #region Public Methods
@@ -53,21 +64,47 @@ namespace HandicapMobile.Presenters
 
         #region Private Methods
 
-        #region private async void MainPage_RegisterClubButtonClick(object sender, EventArgs e)        
+        //#region private async void MainPage_RegisterClubButtonClick(object sender, EventArgs e)        
+        ///// <summary>
+        ///// Handles the RegisterClubButtonClick event of the MainPage control.
+        ///// </summary>
+        ///// <param name="sender">The source of the event.</param>
+        ///// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        //private async void MainPage_RegisterClubButtonClick(Object sender, EventArgs e)
+        //{
+        //    var registerClubPresenter = this.RegisterClubPresenterResolver();
+        //    await registerClubPresenter.Start();
+        //}
+        //#endregion
+
+        #region private async void MainPage_SignInButtonClick(object sender, EventArgs e)            
         /// <summary>
-        /// Handles the RegisterClubButtonClick event of the MainPage control.
+        /// Handles the SignInButtonClick event of the MainPage control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private async void MainPage_RegisterClubButtonClick(Object sender, EventArgs e)
+        /// <exception cref="NotImplementedException"></exception>
+        private async void MainPage_SignInButtonClick(Object sender, EventArgs e)
         {
-            var registerClubPresenter = this.RegisterClubPresenterResolver();
-            await registerClubPresenter.Start();
+            var signInPresenter = this.SignInPresenterResolver();
+            await signInPresenter.Start();
+        }
+        #endregion
+
+        #region private async void MainPage_SignUpButtonClick(object sender, EventArgs e)        
+        /// <summary>
+        /// Handles the SignUpButtonClick event of the MainPage control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <exception cref="NotImplementedException"></exception>
+        private async void MainPage_SignUpButtonClick(Object sender, EventArgs e)
+        {
+            var signupPresenter = this.SignupPresenterResolver();
+            await signupPresenter.Start();
         }
         #endregion
 
         #endregion
-
-        
     }
 }

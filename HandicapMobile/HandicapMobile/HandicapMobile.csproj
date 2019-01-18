@@ -1,14 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Target Name="CopyConfigFiles" AfterTargets="Build">
-    <Copy SourceFiles="$(MSBuildProjectDirectory)/Configuration/$(Configuration)/config.json" DestinationFolder="$(MSBuildProjectDirectory)/Configuration/" />
-  </Target>
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Debug;Release</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Integration|AnyCPU'">
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
@@ -24,38 +26,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="getAddress.Sdk" Version="1.4.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="ManagementAPI.Service.Client" Version="1.0.16.60" />
     <PackageReference Include="Unity" Version="5.8.11" />
     <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\RegisterClub\RegisterClubPage1.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\RegisterClub\RegisterClubPage2.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\RegisterClub\RegisterClubPage3.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\RegisterClub\RegisterClubPage4.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
+    <Compile Update="Views\Signup\SignupPage1.xaml.cs">
+      <DependentUpon>SignupPage1.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Configuration\config.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Views\RegisterClub\RegisterClubPage1.xaml.cs">
-      <DependentUpon>RegisterClubPage1.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\RegisterClub\RegisterClubPage3.xaml.cs">
-      <DependentUpon>RegisterClubPage3.xaml</DependentUpon>
-    </Compile>
+    <EmbeddedResource Update="Views\Signup\SignupPage1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Signup\SignupPageGolfClubAdministrator1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

@@ -18,22 +18,28 @@ namespace HandicapMobile
         {
             InitializeComponent();
 
-            this.btnRegisterClub.Clicked += BtnRegisterClub_Clicked;
+            this.btnSignIn.Clicked += BtnSignIn_Clicked;
+            this.btnSignUp.Clicked += BtnSignUp_Clicked;
         }
 
         /// <summary>
-        /// Occurs when [register club button click].
+        /// Occurs when [sign in button click].
         /// </summary>
-        public event EventHandler RegisterClubButtonClick;
+        public event EventHandler SignInButtonClick;
 
         /// <summary>
-        /// Handles the Clicked event of the BtnRegisterClub control.
+        /// Occurs when [sign up button click].
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void BtnRegisterClub_Clicked(Object sender, EventArgs e)
+        public event EventHandler SignUpButtonClick;
+
+        private void BtnSignUp_Clicked(Object sender, EventArgs e)
         {
-            RegisterClubButtonClick(sender, e);
+            SignUpButtonClick(sender, e);
+        }
+
+        private void BtnSignIn_Clicked(Object sender, EventArgs e)
+        {
+            SignUpButtonClick(sender, e);
         }
     }
 }

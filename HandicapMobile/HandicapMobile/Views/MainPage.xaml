@@ -5,7 +5,8 @@
              x:Class="HandicapMobile.MainPage">
 
     <StackLayout>
-        <Button x:Name="btnRegisterClub" Text="Register Club" />
+        <Button x:Name="btnSignIn" Text="Sign In" />
+        <Button x:Name="btnSignUp" Text="Sign Up" />
     </StackLayout>
 
 </ContentPage>

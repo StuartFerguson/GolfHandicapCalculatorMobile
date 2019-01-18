@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HandicapMobile.Views.Signup.SignupPageGolfClubAdministrator1">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="txtEmailAddress" AutomationId="txtEmailAddress" Placeholder="Email Address" Text="{Binding EmailAddress}" ></Entry>
+            <Entry x:Name="txtTelephoneNumber" AutomationId="txtTelephoneNumber" Placeholder="Telephone Number" Text="{Binding TelephoneNumber}" ></Entry>
+            <Entry x:Name="txtPassword" AutomationId="txtPassword" Placeholder="Password" Text="{Binding Password}" ></Entry>
+            <Button x:Name="btnSignup" Text="Signup >>" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
