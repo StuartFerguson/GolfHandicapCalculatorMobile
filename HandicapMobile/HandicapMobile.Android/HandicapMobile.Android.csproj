@@ -20,6 +20,11 @@
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidSigningKeyStore>D:\Projects\StuartFerguson\GolfHandicapCalculatorMobile\HandicapMobile\HandicapMobile.Android\golfmobile.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>Sc0tland</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>golfmobile</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>Sc0tland</AndroidSigningKeyPass>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
