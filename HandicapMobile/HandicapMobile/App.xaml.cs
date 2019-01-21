@@ -18,8 +18,6 @@ namespace HandicapMobile
 
         public App()
         {
-            //InitializeComponent();
-
             Bootstrapper.Run();
 
             Application.Current.MainPage = new NavigationPage((Page)Container.Resolve<IMainPage>());
