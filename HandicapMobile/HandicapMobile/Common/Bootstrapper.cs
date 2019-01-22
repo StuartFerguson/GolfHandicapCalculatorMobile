@@ -30,9 +30,21 @@ namespace HandicapMobile.Common
         {
             var unityContainer = new UnityContainer();
 
+            // Switch the url based on the compilation values
+            String managementAPIUri = String.Empty;
+            #if INTEGRATION
+                managementAPIUri = "http://192.168.1.132:9000";
+            #else
+            #if DEVELOPMENT
+                managementAPIUri = "http://192.168.1.132:5000";
+            #else
+                managementAPIUri = "http://192.168.1.132:5000";
+            #endif
+            #endif
+
             var configuration = new Configuration
             {
-                ManagementAPI = "http://192.168.1.132:9000"
+                ManagementAPI = managementAPIUri
             };
         
             unityContainer.RegisterInstance<IConfiguration>(configuration, new SingletonLifetimeManager());
