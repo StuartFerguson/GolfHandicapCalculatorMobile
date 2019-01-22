@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.golfhandicapping.mobile" android:installLocation="preferExternal">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.0" package="com.golfhandicapping.mobile" android:installLocation="preferExternal" android:versionCode="1">
 	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="27" />
 	<application android:label="HandicapMobile.Android"></application>
 </manifest>
