@@ -8,5 +8,12 @@
 
 & 'c:\Program Files (x86)\Android\android-sdk\build-tools\26.0.2\apksigner.bat' sign --ks golfmobile --ks-pass pass:Sc0tland bin\Release\com.golfhandicapping.mobile-signed.apk
 
-Copy-Item .\bin\Release\com.golfhandicapping.mobile-signed.apk -Destination D:\AndroidReleases\$outputFolder
+$copyLocation = 'D:\AndroidReleases\' + $outputFolder
+
+If(!(test-path $copyLocation))
+{
+      New-Item -ItemType Directory -Force -Path $copyLocation
+}
+
+Copy-Item .\bin\Release\com.golfhandicapping.mobile-signed.apk -Destination $copyLocation\com.golfhandicapping.mobile-signed.apk -Recurse
 
