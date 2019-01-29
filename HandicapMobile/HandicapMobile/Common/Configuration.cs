@@ -21,5 +21,13 @@ namespace HandicapMobile.Common
         /// The management API.
         /// </value>
         public String ManagementAPI { get; set; }
+
+        /// <summary>
+        /// Gets or sets the security service API.
+        /// </summary>
+        /// <value>
+        /// The security service API.
+        /// </value>
+        public String SecurityServiceAPI { get; set; }
     }
 }

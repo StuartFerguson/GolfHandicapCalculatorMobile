@@ -39,7 +39,7 @@ namespace HandicapMobile
 
         private void BtnSignIn_Clicked(Object sender, EventArgs e)
         {
-            SignUpButtonClick(sender, e);
+            SignInButtonClick(sender, e);
         }
     }
 }

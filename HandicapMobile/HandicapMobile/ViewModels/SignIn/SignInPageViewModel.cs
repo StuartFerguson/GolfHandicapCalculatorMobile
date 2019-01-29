@@ -5,18 +5,17 @@ using Xamarin.Forms;
 
 namespace HandicapMobile.ViewModels.Signup
 {
-    public class SignupPageGolfClubAdministrator1ViewModel : BindableObject
+    public class SignInPageViewModel : BindableObject
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SignupPageGolfClubAdministrator1ViewModel"/> class.
+        /// Initializes a new instance of the <see cref="SignInPageViewModel"/> class.
         /// </summary>
-        public SignupPageGolfClubAdministrator1ViewModel()
+        public SignInPageViewModel()
         {
             EmailAddress=String.Empty;
             Password=String.Empty;
-            TelephoneNumber=String.Empty;
         }
 
         #endregion
@@ -32,12 +31,7 @@ namespace HandicapMobile.ViewModels.Signup
         /// The password
         /// </summary>
         private String password;
-
-        /// <summary>
-        /// The telephone number
-        /// </summary>
-        private String telephoneNumber;
-
+        
         #endregion
 
         #region Properties
@@ -71,22 +65,6 @@ namespace HandicapMobile.ViewModels.Signup
             {
                 password = value;
                 OnPropertyChanged(password);
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the telephone number.
-        /// </summary>
-        /// <value>
-        /// The telephone number.
-        /// </value>
-        public String TelephoneNumber
-        {
-            get { return telephoneNumber; }
-            set
-            {
-                telephoneNumber = value;
-                OnPropertyChanged(telephoneNumber);
             }
         }
 

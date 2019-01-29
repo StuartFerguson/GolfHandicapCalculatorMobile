@@ -39,11 +39,23 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NUnit" Version="2.6.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore">
+      <Version>2.1.4</Version>
+    </PackageReference>
+    <PackageReference Include="NUnit" Version="3.11.0" />
+    <PackageReference Include="NUnit3TestAdapter">
+      <Version>3.12.0</Version>
+    </PackageReference>
     <PackageReference Include="SpecFlow">
       <Version>2.4.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.UITest" Version="2.2.4" />
+    <PackageReference Include="System.Diagnostics.DiagnosticSource">
+      <Version>4.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.UITest" Version="2.2.7" />
     <PackageReference Include="NUnitTestAdapter" Version="2.1.1" />
     <PackageReference Include="xunit">
       <Version>2.4.1</Version>
@@ -51,6 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="SignIn\SignInGolfClubAdministrator.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SignInGolfClubAdministrator1.feature.cs</LastGenOutput>
+    </None>
     <None Include="Signup\SignupGolfClubAdministrator.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>SignupGolfClubAdministrator.feature.cs</LastGenOutput>
@@ -58,6 +74,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\FeatureBase.cs" />
+    <Compile Include="SignIn\SignInGolfClubAdministrator1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SignInGolfClubAdministrator.feature</DependentUpon>
+    </Compile>
+    <Compile Include="SignIn\SignInSteps.cs" />
     <Compile Include="Signup\SignupGolfClubAdministrator.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -65,6 +87,12 @@
     </Compile>
     <Compile Include="Signup\SignupSteps.cs" />
     <Compile Include="AppInitializer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MockDatabase\MockDatabase.csproj">
+      <Project>{214001EA-BDDD-4106-B898-B9BB8626D75D}</Project>
+      <Name>MockDatabase</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

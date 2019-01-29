@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HandicapMobile.Views.SignIn.SignInPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="txtEmailAddress" AutomationId="txtEmailAddress" Placeholder="Email Address" Text="{Binding EmailAddress}" ></Entry>
+            <Entry x:Name="txtPassword" AutomationId="txtPassword" Placeholder="Password" Text="{Binding Password}" ></Entry>
+            <Button x:Name="btnSignIn" Text="Sign In >>" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

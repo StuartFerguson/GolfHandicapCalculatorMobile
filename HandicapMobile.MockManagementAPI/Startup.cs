@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using StructureMap;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace HandicapMobile.MockManagementAPI
 {
@@ -46,11 +47,16 @@ namespace HandicapMobile.MockManagementAPI
                     builder.UseMySql(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationsAssembly)))
                 .AddTransient<MockDatabaseDbContext>();
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Mock API", Version = "v1" });
+            });
+
             container.Configure(config =>
             {
                 config.Populate(services);
             });
-
+            
             Startup.Container = container;
 
             return container;
@@ -75,6 +81,12 @@ namespace HandicapMobile.MockManagementAPI
             }
 
             app.UseMvc();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Mock API v1");
+            });
 
             this.InitialiseDatabase(app).Wait();
         }

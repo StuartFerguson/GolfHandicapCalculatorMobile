@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using HandicapMobile.IntegrationTests.Common;
 using TechTalk.SpecFlow;
 using Xamarin.UITest;
@@ -6,62 +7,62 @@ using Xamarin.UITest;
 namespace HandicapMobile.IntegrationTests.Signup
 {
     [Binding]
-    public class SignupSteps : FeatureBase
+    [Scope(Tag = "signup")]
+    public class SignupSteps 
     {
-        public SignupSteps() : base(Platform.Android, true)
-        {
+        private readonly IApp App;
 
-        }
-
-        [Given(@"I am on the Home Screen")]
-        public void GivenIAmOnTheHomeScreen()
+        public SignupSteps(ScenarioContext scenarioContext)
         {
-            
-        }
+            this.App = scenarioContext.Get<IApp>("App");
+        }        
         
         [When(@"I tap on the Sign Up button")]
         public void WhenITapOnTheSignUpButton()
         {
-            app.WaitForElement(c => c.Marked("Sign Up"));
-            app.Tap(c=> c.Marked("Sign Up"));
+            this.App.WaitForElement(c => c.Marked("Sign Up"));
+            this.App.Tap(c=> c.Marked("Sign Up"));
         }
         
         [When(@"I then tap on the Golf Club Administrator button")]
         public void WhenIThenTapOnTheGolfClubAdministratorButton()
         {
-            app.WaitForElement(c => c.Marked("Golf Club Administrator >>"));
-            app.Tap(c=> c.Marked("Golf Club Administrator >>"));
+            this.App.WaitForElement(c => c.Marked("Golf Club Administrator >>"));
+            this.App.Tap(c=> c.Marked("Golf Club Administrator >>"));
         }
         
-        [When(@"I enter my details")]
-        public void WhenIEnterMyDetails()
+        [When(@"I enter the following details")]
+        public void WhenIEnterTheFollowingDetails(Table table)
         {
-            //app.Repl();
-            app.WaitForElement(x=>x.Marked("txtEmailAddress"));
-            app.EnterText("txtEmailAddress", "testclubadmin@golfclub1.com");
-            app.EnterText("txtTelephoneNumber", "123456");
-            app.EnterText("txtPassword", "123456");
-            app.DismissKeyboard();            
+            // Get the first row
+            TableRow row = table.Rows.First();
+
+            this.App.WaitForElement(x=>x.Marked("txtEmailAddress"));
+            this.App.EnterText("txtEmailAddress", row["EmailAddress"]);
+            this.App.EnterText("txtTelephoneNumber", row["TelephoneNumber"]);
+            this.App.EnterText("txtPassword", row["Password"]);
+            this.App.DismissKeyboard();
         }
         
         [When(@"I click on the Signup button")]
         public void WhenIClickOnTheSignupButton()
         {
-            app.WaitForElement(c => c.Marked("Signup >>"));
-            app.Tap(c=> c.Marked("Signup >>"));
+            this.App.WaitForElement(c => c.Marked("Signup >>"));
+            this.App.Tap(c=> c.Marked("Signup >>"));
         }
         
         [Then(@"I should be presented with a Registration Success message")]
         public void ThenIShouldBePresentedWithARegistrationSuccessMessage()
         {
-            app.WaitForElement(c => c.Marked("Registration Successful"));
-            app.Tap(x => x.Text("OK"));
+            this.App.WaitForElement(c => c.Marked("Registration Successful"));
+            this.App.Tap(x => x.Text("OK"));
         }
         
         [Then(@"returned to the Home Screen")]
         public void ThenReturnedToTheHomeScreen()
         {
-            app.WaitForElement(c => c.Marked("Sign Up"));
+            this.App.Repl();
+            this.App.WaitForElement(c => c.Marked("Sign Up"));
         }
     }
 }
