@@ -34,8 +34,8 @@
 
   <ItemGroup>
     <PackageReference Include="ManagementAPI.Service.Client" Version="1.0.16.60" />
-    <PackageReference Include="Unity" Version="5.8.11" />
-    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
+    <PackageReference Include="Unity" Version="5.9.2" />
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1029999" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,12 +45,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\SignIn\SignedInGolfClubAdministratorPage.xaml.cs">
+      <DependentUpon>SignedInGolfClubAdministratorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Signup\SignupPage1.xaml.cs">
       <DependentUpon>SignupPage1.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\SignIn\SignedInGolfClubAdministratorPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SignIn\SignInPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Signup\SignupPage1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

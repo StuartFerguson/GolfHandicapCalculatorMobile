@@ -16,6 +16,11 @@ namespace HandicapMobile
         /// </summary>
         public static IUnityContainer Container;
 
+        /// <summary>
+        /// The access token
+        /// </summary>
+        public static String AccessToken;
+        
         public App()
         {
             Bootstrapper.Run();

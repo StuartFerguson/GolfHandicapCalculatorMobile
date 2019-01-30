@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace HandicapMobile.IntegrationTests.Signup
+namespace HandicapMobile.IntegrationTests.SignIn
 {
     using TechTalk.SpecFlow;
     
@@ -18,25 +18,25 @@ namespace HandicapMobile.IntegrationTests.Signup
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("SignupGolfClubAdministrator")]
+    [NUnit.Framework.DescriptionAttribute("SignInGolfClubAdministrator")]
     [NUnit.Framework.CategoryAttribute("base")]
-    [NUnit.Framework.CategoryAttribute("signup")]
-    public partial class SignupGolfClubAdministratorFeature
+    [NUnit.Framework.CategoryAttribute("signin")]
+    public partial class SignInGolfClubAdministratorFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "SignupGolfClubAdministrator.feature"
+#line 1 "SignInGolfClubAdministrator.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SignupGolfClubAdministrator", "\tAs a golf club administrator\r\n\tIn order to register my club \r\n\tI require to be a" +
-                    "ble to sign up", ProgrammingLanguage.CSharp, new string[] {
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SignInGolfClubAdministrator", "\tAs a golf club administrator\r\n\tIn order to register my club \r\n\tI require to be a" +
+                    "ble to sign in", ProgrammingLanguage.CSharp, new string[] {
                         "base",
-                        "signup"});
+                        "signin"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -80,25 +80,6 @@ namespace HandicapMobile.IntegrationTests.Signup
 #line 8
  testRunner.Given("There are no administrators signed up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Signup Golf Club Administrator")]
-        public virtual void SignupGolfClubAdministrator()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Signup Golf Club Administrator", null, ((string[])(null)));
-#line 10
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line 7
-this.FeatureBackground();
-#line 11
- testRunner.Given("I am on the Home Screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 12
- testRunner.When("I tap on the Sign Up button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 13
- testRunner.And("I then tap on the Golf Club Administrator button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "EmailAddress",
                         "Password",
@@ -107,14 +88,31 @@ this.FeatureBackground();
                         "testemail@testgolfclub.co.uk",
                         "123456",
                         "123456789"});
+#line 9
+ testRunner.And("I have signed up as a golf club administrator with the following details", ((string)(null)), table1, "And ");
+#line hidden
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Sign In As Golf Club Administrator")]
+        public virtual void SignInAsGolfClubAdministrator()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sign In As Golf Club Administrator", null, ((string[])(null)));
+#line 13
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 7
+this.FeatureBackground();
 #line 14
- testRunner.And("I enter the following details", ((string)(null)), table1, "And ");
+ testRunner.Given("I am on the Home Screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 15
+ testRunner.When("I tap on the Sign In button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 16
+ testRunner.And("I enter the username \'testemail@testgolfclub.co.uk\' and password \'123456\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
- testRunner.And("I click on the Signup button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I click on the Sign In button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
- testRunner.Then("I should be presented with a Registration Success message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 19
- testRunner.And("returned to the Home Screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("I should be presented with the Club Administrator Signed In Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
